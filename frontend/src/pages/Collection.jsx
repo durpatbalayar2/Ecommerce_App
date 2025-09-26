@@ -1,9 +1,40 @@
+import { FaFilter } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import FilterSideBar from "../components/Products/FilterSideBar";
+import SortOptions from "../components/Products/SortOptions";
 
+import ProductGrid from "../components/Products/ProductGrid";
 const Collection = () => {
   const [products, setProducts] = useState([]);
+  const sidebarRef = useRef(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  useEffect(()=>{
-    setTimeout(()=>{
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleClickOutside = (e) => {
+    // Close sidebar if clicked outside of sidebar
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    //Add Event Listener for click outside of sidebar
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // clean event listener
+
+    return () =>{
+
+    document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
       const fetchedProducts = [
         {
           _id: 1,
@@ -89,15 +120,47 @@ const Collection = () => {
           ],
         },
       ];
-    })
-  })
+      setProducts(fetchedProducts);
+    }, 1000);
+  });
   return (
-    <div>
+    <div className="flex flex-col lg:flex-row">
+      {/* Mobile Filer Button */}
+      <button
+        onClick={toggleSidebar}
+        className="lg:hidden border p-2 flex justify-center items-center"
+      >
+        <FaFilter className="mr-2" /> Filters
+      </button>
 
-      
-     
+      {/* Filter SideBar */}
+
+      <div
+        ref={sidebarRef}
+        className={`${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }  fixed  inset-y-0 left-0 w-64 bg-white overflow-y-auto transition-transform duration-300 lg:static lg:translate-x-0`}
+      >
+        <FilterSideBar />
+      </div>
+
+      <div className="flex-grow-0 p-4 ">
+        <h2 className="text-2xl uppercase mb-4">
+          All Collection
+        </h2>
+
+        {/* Sort Options */}
+
+        <SortOptions />
+
+        {/* Product Grid */}
+
+        <ProductGrid products={products} />
+
+
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Collection
+export default Collection;
