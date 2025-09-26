@@ -1,13 +1,12 @@
-
-import Demohero from '../components/Layout/Demohero'
-import Hero from '../components/Layout/Hero'
-import FeaturedCollection from '../components/Products/FeaturedCollection'
-import FeaturedSection from '../components/Products/FeaturedSection'
-import GenderCollection from '../components/Products/GenderCollection'
-import NewArrivals from '../components/Products/NewArrivals'
-import Productdetails from '../components/Products/Productdetails'
-import ProductGrid from '../components/Products/ProductGrid'
-
+import Demohero from "../components/Layout/Demohero";
+import Hero from "../components/Layout/Hero";
+import FeaturedCollection from "../components/Products/FeaturedCollection";
+import FeaturedSection from "../components/Products/FeaturedSection";
+import GenderCollection from "../components/Products/GenderCollection";
+import NewArrivals from "../components/Products/NewArrivals";
+import Productdetails from "../components/Products/Productdetails";
+import ProductGrid from "../components/Products/ProductGrid";
+import DemoBestSeller from "../components/Products/DemoBestSeller";
 const placeholderProducts = [
   {
     _id: 1,
@@ -94,15 +93,13 @@ const placeholderProducts = [
   },
 ];
 
-
-const Home = () => {
+const DemoHome = () => {
   return (
     <div>
-
-      <Demohero/>
+      <Demohero />
       {/* <Hero/> */}
       {/* <GenderCollection/> */}
-      <NewArrivals/>
+
       {/* Best Seller */}
       {/* <h2 className="text-3xl text-center font-bold mb-4"> Best Seller</h2>
       <Productdetails/> */}
@@ -111,19 +108,23 @@ const Home = () => {
 
       <div className="container mx-auto">
         <h2 className="text-3xl text-center font-bold mb-4 ">
-          Popular Trending Products
+          Popular Products
         </h2>
-        <ProductGrid products ={placeholderProducts} />
+        <ProductGrid products={placeholderProducts} />
       </div>
 
+      <NewArrivals />
+
+      {/* Best Seller */}
+      <DemoBestSeller products={placeholderProducts} />
+
       {/* Featured Collection */}
-      <FeaturedCollection/>
+      <FeaturedCollection />
 
       {/* Featured Section  */}
-      <FeaturedSection/>
-
+      <FeaturedSection />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default DemoHome;

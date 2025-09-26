@@ -146,10 +146,10 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 lg:px-0">
+    <section className="py-16 px-3 lg:px-0">
       <div className="container mx-auto text-center mb-10 relative">
         <h2 className="text-3xl font-bold mb-4">Explore New Arrivals</h2>
-        <p className="text-lg text-gray-600 mb-8">
+        <p className=" text-lg text-gray-600 mb-8  sm:px-3 lg:px-30">
           Discover the lastest styles straight off the runway, freshly added to
           keep your wardroble on the cutting edge of fashion.
         </p>
@@ -185,7 +185,7 @@ const NewArrivals = () => {
       {/* Scrollable Content */}
       <div
         ref={scrollRef}
-        className={`container mx-auto overflow-x-auto scrollbar-hide flex space-x-6 relative ${
+        className={`container mx-auto overflow-x-auto scrollbar-hide flex space-x-1 relative ${
           isDragging ? "cursor-grabbing" : "cursor-grab"
         }`}
         onMouseDown={handleMouseDown}
@@ -196,15 +196,15 @@ const NewArrivals = () => {
         {newArrivals.map((product) => (
           <div
             key={product._id}
-            className="min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative"
+            className="min-w-[95%] sm:min-w-[45%] lg:min-w-[25%]   relative"
           >
             <img
               src={product.images[0]?.url}
               alt={product.images[0]?.altText || product.name}
-              className="w-full h-[500px] object-cover rounded-lg"
+              className="w-[238px] h-[300px] object-cover rounded-lg"
               draggable="false"
             />
-            <div className="absolute bottom-0 left-0 right-0 opacity-50 backdrop-blur-md text-white p-4 rounded-b-lg">
+            <div className="absolute bottom-0 left-0  opacity-50 backdrop-blur-md text-white p-3 px-4 rounded-b-lg">
               <Link to={`/product/${product._id}`} className="block">
                 <h4 className="font-medium">{product.name}</h4>
                 <p className="mt-1">${product.price}</p>

@@ -4,6 +4,7 @@ import mens_collection_img from './mens-collection.webp'
 import rabbit_img from './rabbit-hero.webp'
 import register_img from './register.webp'
 import women_coll_img from './womens-collection.webp'
+import logo from './logo.png'
 
 
 export const assets ={
@@ -12,6 +13,7 @@ export const assets ={
     mens_collection_img,
     rabbit_img,
     register_img,
-    women_coll_img
+    women_coll_img,
+    logo
 
 }

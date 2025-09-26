@@ -11,6 +11,30 @@
   display: none; /* Chrome, Safari, Edge */
 }
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
+
+/* Swiper bullet */
+
+.custom-bullet {
+  background-color: rgb(246, 241, 234) !important;
+  width: 20px !important;
+
+  border-radius: 9999px !important;
+  transition: all 0.5s ease-out;
+  opacity: 1;
+}
+
+/* Active bullet with left-to-right animation */
+.custom-bullet-active {
+  background: white !important;
+   
+
+  border-radius: 9999px !important;
+  width: 20px !important;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+  
+}
+
